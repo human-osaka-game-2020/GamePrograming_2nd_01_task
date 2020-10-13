@@ -3,10 +3,11 @@
 #include <stdio.h>
 #include <time.h>
 
+void OmikujiResult();
+
 int main()
 {
-	int inputValue = 0;
-	int randValue = 0;
+	int inputValue = 0;	
 
 	printf("今日の運勢を占います\n");
 	printf("\n");
@@ -14,10 +15,18 @@ int main()
 	scanf_s("%d", &inputValue);
 
 	srand((unsigned)time(NULL));
-	randValue = rand() % 6;
+	OmikujiResult();
+		
+	system("pause");
+	return 0;
+}
+
+void OmikujiResult()
+{
+	int resultValue = rand() % 6;
 
 	// おみくじの結果を表示する
-	switch( randValue )
+	switch (resultValue)
 	{
 	case 0:
 		printf("今日の運勢：大吉！\n");
@@ -37,11 +46,8 @@ int main()
 	case 5:
 		printf("今日の運勢：大凶！\n");
 		break;
-	default:	
+	default:
 		printf("とてつもない運勢です\n");
 		break;
 	}
-
-	system("pause");
-	return 0;
 }
