@@ -3,13 +3,15 @@
 #include <stdio.h>
 #include <time.h>
 
+bool CompareNumber(int CorrectNum, int inputNum);
+
 int main()
 {
 	int inputValue = 0;
-	int randValue = 0;
+	int CorrectValue = 0;
 
 	srand((unsigned)time(NULL));
-	randValue = rand() % 100;
+	CorrectValue = rand() % 100;
 
 	printf("0～99の中から、正解の数字を当ててください\n");
 	printf("\n");
@@ -19,22 +21,33 @@ int main()
 		printf("何か数字を入力してください > ");
 		scanf_s("%d", &inputValue);
 
-		if( inputValue == randValue )
+		if (CompareNumber(CorrectValue, inputValue))
 		{
-			printf("正解です！\n");
-			break;	// breakはwhile文を抜けるのにも使える
-					// breakは、一番近いfor,while,switchの{}範囲から抜ける
-		}
-		else if( inputValue < randValue )
-		{
-			printf("もっと大きい数字です！\n");
-		}
-		else
-		{
-			printf("もっと小さい数字です！\n");
+			break;
 		}
 	}
 
 	system("pause");
 	return 0;
+}
+
+//正解の数字と比べて違うなら大小を出力しfalseを返し、
+//同じなら正解と出力しtrueを返す
+bool CompareNumber(int CorrectNum, int inputNum)
+{
+	if(CorrectNum == inputNum)
+	{
+		printf("正解です！\n");
+		return true;
+	}
+	else if(CorrectNum > inputNum)
+	{
+		printf("もっと大きい数字です！\n");
+		return false;
+	}
+	else if (CorrectNum < inputNum)
+	{
+		printf("もっと小さい数字です！\n");
+		return false;
+	}
 }
