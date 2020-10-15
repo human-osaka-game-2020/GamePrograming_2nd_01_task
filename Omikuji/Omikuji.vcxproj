@@ -140,7 +140,13 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="drawtext.cpp" />
     <ClCompile Include="Omikuji.cpp" />
+    <ClCompile Include="Random.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Common.h" />
+    <ClInclude Include="mainDefinition.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
